@@ -35,7 +35,15 @@ public class Connection {
 		// TODO
 		// encapsulate the data contained in the message and write to the output stream
 		// Hint: use the encapsulate method on the message
-		throw new UnsupportedOperationException(TODO.method());
+		
+		byte[] output = message.encapsulate();
+		
+		try {
+			outStream.write(output);
+		} catch(IOException ex) {
+			ex.printStackTrace();
+		}
+		//throw new UnsupportedOperationException(TODO.method());
 
 	}
 
@@ -50,10 +58,9 @@ public class Connection {
 		
 		if (true) {
 			throw new RuntimeException("not yet implemented");
+		
 		}
-
 		return message;
-
 	}
 
 	// close the connection by closing streams and the underlying socket

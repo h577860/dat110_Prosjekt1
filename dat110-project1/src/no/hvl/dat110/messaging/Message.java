@@ -46,10 +46,16 @@ public class Message {
 		// decapsulate the data contained in the received byte array and store it 
 		// in the payload of this message
 		
+		int length = received[0];
+		payload = new byte[length];
+		
+		for(int i = 0; i < length; i++) {
+			payload[i] = received[i+1];
+		}
 		
 		// AE this is not working yet
-		Message receivedmessage = new Message(received);
-		payload=receivedmessage.getData();
+//		Message receivedmessage = new Message(received);
+//		payload=receivedmessage.getData();
 		
 		// throw new UnsupportedOperationException(TODO.method());
 		
